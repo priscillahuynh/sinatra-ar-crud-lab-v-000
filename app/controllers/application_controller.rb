@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
-  get '/articles' do
+  get '/' do
     erb :index
   end
   
@@ -21,7 +21,12 @@ class ApplicationController < Sinatra::Base
     redirect to '/articles/#{@article.id}'
   end
   
-  get '/articles' do 
+  get '/articles/:id' do
+    @article=Article.find(params[:id])
+    erb :show
+  end
+  
+  get '/articles/post' do 
     @articles=Article.all 
     erb :index
   end
