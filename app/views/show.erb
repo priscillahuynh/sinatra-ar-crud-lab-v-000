@@ -1,3 +1,7 @@
 <h1>Show Page!</h1>
 <h3><%=@article.title%></h3>
 <h3><%=@article.content%></h3>
+
+<form class="" action="/articles/<%=@article.id%>" method="post">
+  <input type="hidden" name="_method" value="delete">
+</form>
